@@ -82,8 +82,8 @@ SafeClone uses a color-coded risk system:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/AuditWare/safeclone.git
-   cd safeclone
+   git clone https://github.com/EmanHerawy/SafeClone.git
+   cd SafeClone
    ```
 
 2. Install dependencies:
@@ -159,7 +159,7 @@ SafeClone uses heuristic-based detection. It catches common attack patterns but 
 ## Project Structure
 
 ```
-safeclone/
+SafeClone/
 ├── src/
 │   ├── background/          # Service Worker (MV3)
 │   │   ├── index.ts         # Entry point
