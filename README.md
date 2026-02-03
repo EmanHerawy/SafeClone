@@ -241,6 +241,20 @@ npm test -- --testPathPattern=vscode
 npm test -- --coverage
 ```
 
+### Antivirus Warning
+
+Your antivirus software may flag files in the `tests/fixtures/` directory as malicious. **This is expected behavior.**
+
+The test fixtures contain intentionally malicious-looking package files (e.g., `malicious-package.json`) that simulate real-world supply chain attacks. These files are used to verify that SafeClone correctly detects threats like:
+
+- Dangerous `preinstall`/`postinstall` scripts
+- Data exfiltration patterns
+- Typosquatting dependencies
+
+**Important:** No packages are installed or executed during testing. These are static JSON/YAML files used purely for pattern matching tests.
+
+If your antivirus quarantines these files, you can safely add an exclusion for the `tests/fixtures/` directory.
+
 ### Adding New Detection Patterns
 
 1. Create a new scanner in `src/heuristics/patterns/`:
