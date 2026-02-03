@@ -243,7 +243,7 @@ export function showResults(result: ScanResult): void {
                    result.overallRisk === RiskLevel.YELLOW ? '⚡' : '✓';
   const riskLabel = onlyFetchError ? 'Scan Incomplete' :
                     result.overallRisk === RiskLevel.RED ? 'Dangerous' :
-                    result.overallRisk === RiskLevel.YELLOW ? 'At Risk' : 'Safe';
+                    result.overallRisk === RiskLevel.YELLOW ? 'Potential Risk' : 'Safe';
 
   let findingsHtml = '';
   if (result.findings.length > 0) {

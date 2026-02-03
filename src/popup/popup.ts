@@ -101,7 +101,7 @@ function showResults(result: ScanResult): void {
   const riskIcon = result.overallRisk === RiskLevel.RED ? '⚠️' :
                    result.overallRisk === RiskLevel.YELLOW ? '⚡' : '✓';
   const riskTitle = result.overallRisk === RiskLevel.RED ? 'Dangerous' :
-                    result.overallRisk === RiskLevel.YELLOW ? 'At Risk' : 'Safe';
+                    result.overallRisk === RiskLevel.YELLOW ? 'Potential Risk' : 'Safe';
   const riskDesc = result.overallRisk === RiskLevel.RED
     ? 'Immediate security risks detected'
     : result.overallRisk === RiskLevel.YELLOW
