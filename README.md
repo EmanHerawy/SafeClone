@@ -110,6 +110,23 @@ SafeClone uses a color-coded risk system:
    - Click to expand and see detailed findings
    - Each finding shows the file, line number, and description
 
+## Screenshots
+
+### Safe Repository
+When no threats are detected, SafeClone shows a green "Safe" indicator:
+
+![Safe Repository](assets/icons/screenshots/safe.png)
+
+### Potential Risk
+When suspicious patterns are found that require review, SafeClone shows a yellow "Potential Risk" warning:
+
+![Potential Risk](assets/icons/screenshots/potential_risk.png)
+
+### Dangerous Repository
+When immediate threats like auto-execution or data exfiltration are detected, SafeClone shows a red "Dangerous" alert:
+
+![Dangerous Repository](assets/icons/screenshots/danger.png)
+
 ## Limitations
 
 ### Public Repositories Only
