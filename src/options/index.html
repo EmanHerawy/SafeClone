@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeClone Settings</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f6f8fa;
+      color: #24292e;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+    }
+
+    .header-text h1 {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .header-text p {
+      color: #586069;
+      font-size: 14px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid #e1e4e8;
+      font-weight: 600;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .help-text {
+      color: #586069;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #0366d6;
+      box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.1);
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+    }
+
+    .checkbox-item label {
+      margin-bottom: 0;
+      font-weight: normal;
+      cursor: pointer;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .btn-primary {
+      background: #0366d6;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #0256b9;
+    }
+
+    .btn-danger {
+      background: #dc3545;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #c82333;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .status {
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    .status.success {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .status.error {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">🛡️</div>
+      <div class="header-text">
+        <h1>SafeClone Settings</h1>
+        <p>Configure your security scanning preferences</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Scanning Options</div>
+      <div class="card-body">
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="scan-vscode" checked>
+            <label for="scan-vscode">VSCode Tasks (tasks.json)</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="scan-npm" checked>
+            <label for="scan-npm">NPM Packages (package.json)</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="scan-python" checked>
+            <label for="scan-python">Python (setup.py, pyproject.toml)</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="scan-rust" checked>
+            <label for="scan-rust">Rust (Cargo.toml)</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="scan-github" checked>
+            <label for="scan-github">GitHub Actions</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="scan-entropy" checked>
+            <label for="scan-entropy">High Entropy Detection</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="scan-homoglyph" checked>
+            <label for="scan-homoglyph">Homoglyph/Hidden Character Detection</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Cache Management</div>
+      <div class="card-body">
+        <p class="help-text" style="margin-bottom: 12px;">
+          Clear cached scan results to force re-scanning of repositories.
+        </p>
+        <button class="btn btn-danger" id="clear-cache">Clear Cache</button>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="save-btn">Save Settings</button>
+    </div>
+
+    <div id="status" class="status hidden"></div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

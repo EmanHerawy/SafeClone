@@ -1,0 +1,26 @@
+{
+  "name": "safe-project",
+  "version": "1.0.0",
+  "description": "A safe package for testing",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "jest": "^29.0.0",
+    "eslint": "^8.0.0",
+    "husky": "^8.0.0"
+  },
+  "keywords": ["safe", "example"],
+  "author": "Test Author",
+  "license": "MIT"
+}

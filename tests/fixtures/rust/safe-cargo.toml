@@ -1,0 +1,22 @@
+[package]
+name = "safe-crate"
+version = "0.1.0"
+edition = "2021"
+authors = ["Safe Developer <safe@example.com>"]
+description = "A safe Rust crate"
+license = "MIT"
+repository = "https://github.com/safe/safe-crate"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+tokio = { version = "1.0", features = ["rt-multi-thread", "macros"] }
+anyhow = "1.0"
+tracing = "0.1"
+
+[dev-dependencies]
+criterion = "0.5"
+proptest = "1.0"
+
+[profile.release]
+opt-level = 3
+lto = true

